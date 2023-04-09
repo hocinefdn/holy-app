@@ -45,6 +45,7 @@ function App() {
           <Routes>
             <Route path="/" element={<HomePage />} />
             <Route path="/:shopSlug" element={<ShopPage />} />
+            <Route path="/:shopSlug/articles/:article" element={<ShopPage />} />
 
             {/* -------------  404 error page  ------------- */}
             <Route path="/*" element={<ErrorPage />} />

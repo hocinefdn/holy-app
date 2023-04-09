@@ -1,27 +1,45 @@
 import { AppBar, Box, Toolbar } from "@mui/material";
 import React from "react";
 import { Link } from "react-router-dom";
-import logo from "../../images/HoLyzLogo.png";
-
+import LocalPhoneIcon from "@mui/icons-material/LocalPhone";
+import LocalShippingIcon from "@mui/icons-material/LocalShipping";
+import SideBar from "./side-bar/SideBar";
 const Header = () => {
   return (
     <Box sx={{ flexGrow: 1 }}>
       <AppBar position="static">
-        <Toolbar>
-          <div className="flex flex-row items-center absolute left-10">
-            <Link to="/">
-              <img src={logo} alt="logo" width="60" />
-            </Link>
-            <Link to="/tariffs" className="text-lg mr-2 hover:underline ">
-              Tarifs
-            </Link>
-            <Link to="/contact" className="text-lg mr-2 hover:underline ">
-              Contact
-            </Link>
-          </div>
+        <Box
+          sx={{
+            display: "flex",
+            justifyContent: "space-between",
+            bgcolor: "#F2F2F2",
+          }}
+        >
+          <a href="tel:+1 (800) 123-45-67" className="hover:underline">
+            <LocalPhoneIcon />
+            +1 (800) 123-45-67
+          </a>
 
-          <div className="flex justify-between absolute right-4 items-center">
-            <div className="flex justify-end">
+          <a href="tel:+1 (800) 123-45-67" className="hover:underline">
+            <LocalShippingIcon />
+            Opening hours 9 a.m. - 6 p.m.
+          </a>
+          <Link to="/about" className="text-lg mr-2 hover:underline">
+            À propos de nous
+          </Link>
+        </Box>
+        <Toolbar>
+          <div className="flex justify-between w-full">
+            <div className="flex items-center">
+              <SideBar />
+              <Link to="/">LOGO</Link>
+              <Link to="/tariffs" className="text-lg mx-2 hover:underline ">
+                Tarifs
+              </Link>
+            </div>
+            <div>Bienvenue dans notre magasin</div>
+
+            <div>
               <Link to="/login" className="text-lg mr-2 hover:underline ">
                 Se connecter
               </Link>
@@ -29,13 +47,6 @@ const Header = () => {
                 S'inscrire
               </Link>
             </div>
-
-            <Link
-              to="/test"
-              className="cursor-pointer bg-red-500 px-3 py-2 font-bold text-md rounded-3xl hover:bg-red-700 text-white"
-            >
-              Démarrer l’essai gratuit
-            </Link>
           </div>
         </Toolbar>
       </AppBar>

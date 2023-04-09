@@ -1,2 +1,2 @@
 // local
-export const apiUrl = "http://achete-le.test/api";
+export const apiUrl = "http://ho-lyz.test/api";

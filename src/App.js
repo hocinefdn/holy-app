@@ -4,6 +4,8 @@ import { createTheme, ThemeProvider } from "@mui/material/styles";
 
 import ErrorPage from "./pages/ErrorPage";
 import HomePage from "./pages/HomePage";
+import ShopPage from "./pages/ShopPage";
+import { useEffect } from "react";
 
 const theme = createTheme({
   palette: {
@@ -29,6 +31,12 @@ const theme = createTheme({
 });
 
 function App() {
+  useEffect(() => {
+    const importTE = async () => {
+      await import("tw-elements");
+    };
+    importTE();
+  }, []);
   return (
     <ThemeProvider theme={theme}>
       <div className="app">
@@ -36,6 +44,7 @@ function App() {
           {/* #########  Routes  ######## */}
           <Routes>
             <Route path="/" element={<HomePage />} />
+            <Route path="/:shopSlug" element={<ShopPage />} />
 
             {/* -------------  404 error page  ------------- */}
             <Route path="/*" element={<ErrorPage />} />
